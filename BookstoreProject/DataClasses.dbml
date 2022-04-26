@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="BookDatabase" Class="DataClassesDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\BookDatabase.mdf;Integrated Security=True" SettingsObjectName="BookstoreProject.Properties.Settings" SettingsPropertyName="BookDatabaseConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Books" Member="Books">
+    <Type Name="Books">
+      <Column Name="Name" Type="System.String" DbType="NVarChar(100) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Author" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Year" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Price" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Association Name="Books_BookBookstore" Member="BookBookstore" ThisKey="Name" OtherKey="Book" Type="BookBookstore" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Bookstore" Member="Bookstore">
+    <Type Name="Bookstore">
+      <Column Name="Bookstore" Member="Bookstore1" Type="System.String" DbType="NVarChar(100) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Adress" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Association Name="Bookstore_BookBookstore" Member="BookBookstore" ThisKey="Bookstore1" OtherKey="BookstoreName" Type="BookBookstore" />
+    </Type>
+  </Table>
+  <Table Name="dbo.BookBookstore" Member="BookBookstore">
+    <Type Name="BookBookstore">
+      <Column Name="Book" Type="System.String" DbType="NVarChar(100) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="BookstoreName" Type="System.String" DbType="NVarChar(100) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="isAvalible" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Association Name="Books_BookBookstore" Member="Books" ThisKey="Book" OtherKey="Name" Type="Books" IsForeignKey="true" />
+      <Association Name="Bookstore_BookBookstore" Member="Bookstore" ThisKey="BookstoreName" OtherKey="Bookstore1" Type="Bookstore" IsForeignKey="true" />
+    </Type>
+  </Table>
+</Database>

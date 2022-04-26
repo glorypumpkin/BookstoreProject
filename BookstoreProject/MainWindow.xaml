@@ -7,6 +7,11 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Label Content="Books" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="58"/>
+        <ListBox d:ItemsSource="{d:SampleData ItemCount=5}" Margin="10,41,674,179" SelectionChanged="ListBox_SelectionChanged"/>
+
     </Grid>
 </Window>
