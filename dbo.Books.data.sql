@@ -1,0 +1,8 @@
+﻿INSERT INTO [dbo].[Books] ([Name], [Author], [Year], [Price]) VALUES (N'1984', N'George Orwell', 1949, CAST(189.0000 AS Money))
+INSERT INTO [dbo].[Books] ([Name], [Author], [Year], [Price]) VALUES (N'Dune', N'Frank Herbert', 2021, CAST(292.0000 AS Money))
+INSERT INTO [dbo].[Books] ([Name], [Author], [Year], [Price]) VALUES (N'Echo Man', N'Sam Holland', 2022, CAST(315.0000 AS Money))
+INSERT INTO [dbo].[Books] ([Name], [Author], [Year], [Price]) VALUES (N'Kobzar', N'Taras Shevchenko', 1840, CAST(945.0000 AS Money))
+INSERT INTO [dbo].[Books] ([Name], [Author], [Year], [Price]) VALUES (N'The Aeneid', N'Ivan Kotlyarevsky', 1843, CAST(600.0000 AS Money))
+INSERT INTO [dbo].[Books] ([Name], [Author], [Year], [Price]) VALUES (N'The Butcher and the Wren', N'Alaina Urquhart', 2022, CAST(625.0000 AS Money))
+INSERT INTO [dbo].[Books] ([Name], [Author], [Year], [Price]) VALUES (N'Ukraine on the Fire', N'Oleksandr Dovzhenko', 1953, CAST(300.0000 AS Money))
+INSERT INTO [dbo].[Books] ([Name], [Author], [Year], [Price]) VALUES (N'Young Mungo', N'Douglas Stuart', 2022, CAST(625.0000 AS Money))
