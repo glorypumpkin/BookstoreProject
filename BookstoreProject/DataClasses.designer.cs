@@ -264,7 +264,7 @@ namespace BookstoreProject
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
-		private string _Bookstore1;
+		private string _ShopName;
 		
 		private string _Adress;
 		
@@ -274,8 +274,8 @@ namespace BookstoreProject
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
     partial void OnCreated();
-    partial void OnBookstore1Changing(string value);
-    partial void OnBookstore1Changed();
+    partial void OnShopNameChanging(string value);
+    partial void OnShopNameChanged();
     partial void OnAdressChanging(string value);
     partial void OnAdressChanged();
     #endregion
@@ -286,22 +286,22 @@ namespace BookstoreProject
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="Bookstore", Storage="_Bookstore1", DbType="NVarChar(100) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
-		public string Bookstore1
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ShopName", DbType="NVarChar(100) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		public string ShopName
 		{
 			get
 			{
-				return this._Bookstore1;
+				return this._ShopName;
 			}
 			set
 			{
-				if ((this._Bookstore1 != value))
+				if ((this._ShopName != value))
 				{
-					this.OnBookstore1Changing(value);
+					this.OnShopNameChanging(value);
 					this.SendPropertyChanging();
-					this._Bookstore1 = value;
-					this.SendPropertyChanged("Bookstore1");
-					this.OnBookstore1Changed();
+					this._ShopName = value;
+					this.SendPropertyChanged("ShopName");
+					this.OnShopNameChanged();
 				}
 			}
 		}
@@ -326,7 +326,7 @@ namespace BookstoreProject
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Bookstore_BookBookstore", Storage="_BookBookstore", ThisKey="Bookstore1", OtherKey="BookstoreName")]
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Bookstore_BookBookstore", Storage="_BookBookstore", ThisKey="ShopName", OtherKey="BookstoreName")]
 		public EntitySet<BookBookstore> BookBookstore
 		{
 			get
@@ -509,7 +509,7 @@ namespace BookstoreProject
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Bookstore_BookBookstore", Storage="_Bookstore", ThisKey="BookstoreName", OtherKey="Bookstore1", IsForeignKey=true)]
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Bookstore_BookBookstore", Storage="_Bookstore", ThisKey="BookstoreName", OtherKey="ShopName", IsForeignKey=true)]
 		public Bookstore Bookstore
 		{
 			get
@@ -532,7 +532,7 @@ namespace BookstoreProject
 					if ((value != null))
 					{
 						value.BookBookstore.Add(this);
-						this._BookstoreName = value.Bookstore1;
+						this._BookstoreName = value.ShopName;
 					}
 					else
 					{

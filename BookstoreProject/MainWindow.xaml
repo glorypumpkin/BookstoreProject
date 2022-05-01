@@ -3,15 +3,43 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:BookstoreProject"
+        xmlns:local="clr-namespace:BookstoreProject" d:DataContext="{d:DesignInstance Type=local:Books}"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="369" Width="649">
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="19*"/>
+            <RowDefinition Height="334*"/>
+        </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <Label Content="Books" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="58"/>
-        <ListBox d:ItemsSource="{d:SampleData ItemCount=5}" Margin="10,41,674,179" SelectionChanged="ListBox_SelectionChanged"/>
+        <Label Content="Books" HorizontalAlignment="Left" Margin="50,3,0,0" VerticalAlignment="Top" Width="82" RenderTransformOrigin="2.952,0.587" Grid.Row="1" FontSize="22" Visibility="Visible" FontFamily="Consolas" FontWeight="Bold" FontStyle="Normal" BorderBrush="#FF722929" Height="36"/>
+        <Button x:Name ="btnAdd" Content="Add" HorizontalAlignment="Left" Margin="446,284,0,0" Grid.Row="1" VerticalAlignment="Top" Width="44" Click="btnAdd_Click" Height="20"/>
+        <Button x:Name ="btnEdit" Content="Edit" HorizontalAlignment="Left" Margin="495,284,0,0" Grid.Row="1" VerticalAlignment="Top" Width="54" Click="btnEdit_Click" Height="20"/>
+        <Button x:Name ="btnDelete" Content="Delete" HorizontalAlignment="Left" Margin="554,284,0,0" Grid.Row="1" VerticalAlignment="Top" Width="46" Click="btnDelete_Click" Height="20"/>
+        <TextBox x:Name="txtSearchBook" HorizontalAlignment="Left" Margin="97,44,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="170" FontWeight="Normal" FontStyle="Normal" TextDecorations="{x:Null}" Visibility="Visible" TextChanged="txtSearchBook_TextChanged" Height="18"/>
+        <ListView x:Name ="lwBooks" Grid.Row="1" Margin="50,67,49,62">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Book name" Width="140" DisplayMemberBinding="{Binding Path=Name}"/>
+                    <GridViewColumn Header="Author" Width="140" DisplayMemberBinding="{Binding Path=Author}"/>
+                    <GridViewColumn Header="Year" Width="140" DisplayMemberBinding="{Binding Path=Year}"/>
+                    <GridViewColumn Header="Price" Width="140" DisplayMemberBinding="{Binding Path=Price}"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Label Content="Search:" HorizontalAlignment="Left" Margin="50,38,0,0" Grid.Row="1" VerticalAlignment="Top" Height="29" Width="58"/>
+
+        <Menu Margin="0,0,0,1">
+            <MenuItem Header="_File">
+                <MenuItem Header="_Import" Click="importBooks_Click">
+                </MenuItem>
+                <MenuItem Header="_Export" Click="exportBooks_Click">
+                </MenuItem>
+            </MenuItem>
+        </Menu>
+        <Button Content="Info" HorizontalAlignment="Left" Height="20" Margin="395,284,0,0" Grid.Row="1" VerticalAlignment="Top" Width="46" Click="btnInfo_Click"/>
 
     </Grid>
 </Window>
